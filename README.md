@@ -93,3 +93,11 @@ MIT — see [LICENSE](LICENSE).
 ---
 
 *Papyrus was born from the observation that reading academic papers shouldn't require fighting with layout engines. One session with "Attention Is All You Need" produced enough learnings to codify the entire pipeline.*
+
+---
+
+## 🎨 Credits
+
+The visual design system (warm parchment background, ink-blue accent, serif-led typographic scale) is adapted from the **[Kami](https://docs.openclaw.ai)** design language, part of the OpenClaw skills ecosystem.
+
+Kami's design tokens (colors, spacing, font stacks, wireframe patterns) are used under the same MIT license.
