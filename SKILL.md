@@ -1,7 +1,7 @@
 # Papyrus — Academic Paper Deep-Read Skill v0.2.0
 
 > Turn arXiv papers into bilingual, beautifully formatted, annotation-rich PDFs.
-> Now with support for Claude Code, Codex, Hermes, and Open Code.
+> Now with support for OpenClaw, Claude Code, Codex, Hermes, and Open Code.
 
 ## Identity
 
@@ -69,6 +69,7 @@ papyrus/
 ├── TEMPLATES/
 │   └── paper.html     ← Base HTML template (Kami design system)
 └── platforms/          ← Agent platform adapter configs
+    ├── openclaw/       ← OpenClaw native config (auto-loaded)
     ├── claude-code/    ← Claude Code skill definition
     ├── codex/          ← OpenAI Codex YAML tool definition
     ├── hermes/         ← Hermes Python tool module

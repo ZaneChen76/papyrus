@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-green)](https://python.org)
 [![Version](https://img.shields.io/badge/version-v0.2.0-lightgrey)](https://github.com/ZaneChen76/papyrus/releases)
-[![Platforms](https://img.shields.io/badge/platforms-Claude%20Code%20%7C%20Codex%20%7C%20Hermes%20%7C%20Open%20Code-green)]()
+[![Platforms](https://img.shields.io/badge/platforms-OpenClaw%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Hermes%20%7C%20Open%20Code-green)]()
 
 Papyrus (莎草纸) transforms academic papers into deep-read study documents. Given a paper URL, it produces a single PDF containing the original English text, paragraph-by-paragraph Chinese translation, expert commentary, all figures and formulas — typeset with professional Kami-inspired design.
 
@@ -45,6 +45,7 @@ Papyrus v0.2.0 ships with adapters for major AI coding agents:
 
 | Platform | Config | How to Install |
 |----------|--------|---------------|
+| **OpenClaw** | `SKILL.md` (auto-loaded) | Already installed at `~/.openclaw/skills/papyrus/` |
 | **Claude Code** | `platforms/claude-code/papyrus-skill.md` | Copy to `.claude/skills/` |
 | **Codex** | `platforms/codex/papyrus-tool.yaml` | Copy to `.codex/tools/` |
 | **Hermes** | `platforms/hermes/papyrus-tool.py` | Copy to `hermes/tools/` |
