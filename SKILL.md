@@ -1,4 +1,4 @@
-# Papyrus — Academic Paper Deep-Read Skill v0.2.0
+# Papyrus — Academic Paper Deep-Read Skill v0.2.1
 
 > Turn arXiv papers into bilingual, beautifully formatted, annotation-rich PDFs.
 > Now with support for OpenClaw, Claude Code, Codex, Hermes, and Open Code.
