@@ -36,11 +36,12 @@
 A single PDF containing:
 1. Cover page with title, authors, abstract (bilingual)
 2. Body text in bilingual blocks (English → Chinese → Commentary)
-3. All original figures with translated captions
-4. All formulas rendered as crisp LaTeX PNGs from codecogs
-5. Tables with bilingual headers
-6. Appendix figures (if any)
-7. Epilogue with key takeaways
+3. **Commentary enriched by web research**: LLM searches for quality paper interpretations (blog posts, lectures, citation papers, community discussions), synthesizes with its own understanding — delivering true "deep-read" quality, not surface-level translation
+4. All original figures with translated captions
+5. All formulas rendered as crisp LaTeX PNGs from codecogs
+6. Tables with bilingual headers
+7. Appendix figures (if any)
+8. Epilogue with key takeaways
 
 ## Design System
 

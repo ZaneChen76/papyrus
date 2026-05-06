@@ -99,11 +99,32 @@ For multi-panel figures in the appendix (e.g., x1.png-x5.png), add a dedicated a
 ### 4.4 Table embedding
 Use HTML `<table>` with Kami-styled headers. Include bilingual column headers.
 
-### 4.5 Commentary rules
-- **No fabrication**: all content must derive from the original paper
-- **No scope creep**: stay within confirmed boundaries
+### 4.5 Commentary workflow (MANDATORY)
+
+Commentary is what distinguishes "deep-read" from simple translation. Follow this sequence for **every** commentary block:
+
+1. **Read the original paper paragraph carefully** — understand every technical term, citation, and logical connection
+2. **Web research**: search for quality interpretations of this paper (blog posts by ML researchers, lecture notes, citation papers, conference reviews, discussion threads on r/MachineLearning, Hacker News)
+3. **Cross-reference**: find 2-3 independent sources discussing the same section; identify consensus insights and conflicting interpretations
+4. **Synthesize**: combine the author's intent, community understanding, and your own technical reasoning into a concise commentary
+5. **Write**: no more than 4 sentences per commentary block
+
+**Commentary types to prioritize:**
+
+| Type | Example | When to use |
+|------|---------|-------------|
+| Historical context | "This design choice was later adopted by GPT-3 and scaled to 175B parameters" | For design decisions with lasting impact |
+| Theoretical motivation | "The variance argument is purely probabilistic — q·k has variance proportional to dₖ under independence assumptions" | For non-obvious mathematical choices |
+| Engineering insight | "Dot-product attention can use cuBLAS for highly optimized matrix multiplication" | For implementation-adjacent claims |
+| Critical perspective | "The O(n²) complexity of self-attention became the bottleneck that later works (Longformer, BigBird) sought to address" | To connect to subsequent research |
+| Counterpoint | "While sinusoidal encoding is parameter-free, learned embeddings (BERT-style) eventually became more common in practice" | To balance paper's claims against real-world evolution |
+
+**Commentary rules:**
+- **No fabrication**: all factual claims must be traceable to the original paper or reputable external sources
+- **No scope creep**: stay within confirmed boundaries, do not add unrelated background
 - **Be insightful**: explain WHY, not just WHAT
-- Max 3-4 sentences per commentary block
+- **Cite sources implicitly**: weave in information from web research without academic-style citations
+- **Max 4 sentences** per commentary block — if it needs more, it's probably a separate section
 
 ### 4.6 Typesetting specification
 ```css
