@@ -51,17 +51,18 @@ This downloads the LaTeX source tar.gz and extracts:
 ```
 
 **Formula rendering rules**:
-- Use `\dpi{150}` prefix for crisp resolution
+- Use `\dpi{150}` prefix for crisp resolution (applies to both local and online rendering)
 - Use `\mathrm{}` for function names (Attention, softmax, FFN, etc.)
 - Use `\displaystyle` for block formulas
 - Use `\left(` and `\right)` for properly sized parentheses
 - **Never upscale** the rendered PNGs — use them at native resolution
 - Embed in HTML with `max-width: 100%; height: auto; display: block; margin: 0 auto`
 
-**Service URL format**:
-```
-https://latex.codecogs.com/png.image?\dpi{150}%20\displaystyle%20%5Cmathrm{formula}
-```
+**Rendering engine fallback** (transparent to user):
+1. **Local LaTeX** — checks for `pdflatex`/`lualatex`/`xelatex`; uses `standalone` document class → PDF → Python pypdf+Pillow extraction to PNG
+2. **Online API** — falls back to `codecogs.com` if no local engine is found
+
+The script `render_formulas.sh` handles this automatically. No flags needed.
 
 ## Phase 4: Build Annotated HTML
 

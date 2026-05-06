@@ -61,11 +61,21 @@ papyrus/
 
 - **Python 3.10+** — `weasyprint`, `pypdf`, `Pillow`, `requests`
 - **bash** — standard Unix tools
-- **Internet** — codecogs.com for formula rendering, arXiv for paper downloads
+- **Option A** (recommended): local LaTeX engine (`pdflatex` from texlive or basictex)
+- **Option B** (backup): internet access for codecogs.com formula rendering
 
 Install Python dependencies:
 ```bash
 pip3 install weasyprint pypdf Pillow requests
+```
+
+For best results, install a lightweight LaTeX distribution:
+```bash
+# macOS
+brew install --cask basictex
+
+# Ubuntu/Debian
+apt install texlive-latex-base texlive-latex-extra
 ```
 
 ## 🎨 Design Philosophy

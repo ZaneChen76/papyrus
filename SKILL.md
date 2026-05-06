@@ -73,7 +73,7 @@ papyrus/
 
 | Decision | Rationale |
 |----------|-----------|
-| Formula rendering: codecogs PNG @ `\dpi{150}` | No LaTeX dependency, crisp at native resolution, portable |
+| Formula rendering: local TeX → PNG, fallback to codecogs PNG @ `\dpi{150}` | Best quality when LaTeX available; internet-free fallback |
 | Images: `max-width:100%; height:auto` | Never upscale; avoids blur from LANCZOS enlarging |
 | Formula wireframe: visible border | User-requested: visually distinguishes formulas from text |
 | Bilingual blocks: EN→CN→Commentary | Three-layer depth progressively builds understanding |
@@ -81,7 +81,7 @@ papyrus/
 
 ## Known Limitations
 
-- codecogs.com requires internet; no offline mode
+- **Offline mode requires local LaTeX** — without `pdflatex`, formulas fall back to codecogs.com (internet required)
 - WeasyPrint SVG math rendering is unreliable → always use PNG
 - Font availability varies by OS → fallback chain: MingLiU → LiSong Pro → SimSun → Songti SC
 - arXiv source must be downloadable (no paywalled papers)
