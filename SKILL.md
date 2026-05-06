@@ -60,7 +60,8 @@ papyrus/
 ├── SCRIPTS/
 │   ├── run.sh         ← Main entry point
 │   ├── fetch_arxiv.sh ← Download arXiv source (tar.gz)
-│   ├── render_formulas.sh ← Render LaTeX → PNG via codecogs
+│   ├── render_formulas.sh ← Render LaTeX → PNG (local TeX → codecogs)
+│   ├── render_figures.sh  ← Convert PDF figures → PNG (PyMuPDF)
 │   ├── build_html.py  ← Build annotated bilingual HTML
 │   └── build_pdf.sh   ← HTML → WeasyPrint PDF
 ├── TEMPLATES/
@@ -82,6 +83,7 @@ papyrus/
 ## Known Limitations
 
 - **Offline mode requires local LaTeX** — without `pdflatex`, formulas fall back to codecogs.com (internet required)
-- WeasyPrint SVG math rendering is unreliable → always use PNG
+- **Vector PDF figures need PyMuPDF** — `fitz` rasterizes vector figures to PNG for WeasyPrint (auto-detected)
+- **Commentary quality depends on LLM + web research** — deeper commentary requires iterative search across multiple sources
 - Font availability varies by OS → fallback chain: MingLiU → LiSong Pro → SimSun → Songti SC
 - arXiv source must be downloadable (no paywalled papers)

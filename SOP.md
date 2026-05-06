@@ -40,6 +40,21 @@ This downloads the LaTeX source tar.gz and extracts:
 
 **Verification**: for each figure, confirm the image dimensions match a known cross-reference from the PDF.
 
+### 2.5 Figure Rasterization
+
+arXiv papers often include **vector PDF figures** (no embedded bitmap) that cannot be directly embedded in WeasyPrint HTML. Convert them to PNG:
+
+```bash
+./SCRIPTS/render_figures.sh <figures_dir> <output_dir>
+```
+
+This script auto-detects raster vs vector PDFs:
+- **Raster PDFs**: extracts the embedded bitmap → PNG
+- **Vector PDFs**: rasterizes at 200 DPI via PyMuPDF → PNG
+- Resizes oversized images (>1400px wide) to avoid PDF bloat
+
+**Requires**: `pip3 install PyMuPDF`
+
 ## Phase 3: Formula Extraction and Rendering
 
 1. Scan the paper for all displayed formulas (not inline math)
