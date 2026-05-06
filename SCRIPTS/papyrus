@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# papyrus — Unified CLI entry point for all agent platforms
+#
+# Usage (from any agent platform):
+#   papyrus [command] [options...]
+#
+# Commands:
+#   fetch   <arxiv_url> <output_dir>          Download paper source
+#   figures <figure_dir> <output_dir>          Convert PDF figures to PNG
+#   formulas <formulas.txt> <output_dir>       Render LaTeX formulas
+#   pdf     <html_file> <output.pdf>           Build final PDF
+#   run     <arxiv_url> [--output <dir>]       Full pipeline (interactive)
+#
+# Platform configs in platforms/ teach agents how to invoke these.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+show_help() {
+    cat << 'EOF'
+Papyrus v0.2.0 — Academic paper deep-read tool
+
+Commands:
+  papyrus fetch <arxiv_url> <output_dir>
+      Download and extract arXiv paper source.
+
+  papyrus figures <figure_dir> <output_dir>
+      Convert PDF figures to PNG (PyMuPDF rasterization).
+
+  papyrus formulas <formulas.txt> <output_dir>
+      Render LaTeX formulas to PNG (local TeX → codecogs fallback).
+
+  papyrus pdf <html_file> <output.pdf>
+      Build final PDF from annotated HTML.
+
+  papyrus run <arxiv_url> [--output <dir>]
+      Full pipeline: fetch → figures → formulas → (build HTML) → pdf
+
+Agent Platform Integration:
+  Copy the appropriate config from platforms/ into your agent's workspace:
+
+    Claude Code   → platforms/claude-code/papyrus-skill.md
+    Codex         → platforms/codex/papyrus-tool.yaml
+    Hermes        → platforms/hermes/papyrus-tool.py
+    Open Code     → platforms/open-code/papyrus-config.yaml
+
+  Each config tells the agent which papyrus commands to invoke and when.
+EOF
+}
+
+case "${1:-}" in
+    fetch)
+        shift
+        exec bash "$SCRIPT_DIR/fetch_arxiv.sh" "$@"
+        ;;
+    figures)
+        shift
+        exec bash "$SCRIPT_DIR/render_figures.sh" "$@"
+        ;;
+    formulas)
+        shift
+        exec bash "$SCRIPT_DIR/render_formulas.sh" "$@"
+        ;;
+    pdf)
+        shift
+        exec bash "$SCRIPT_DIR/build_pdf.sh" "$@"
+        ;;
+    run)
+        shift
+        exec bash "$SCRIPT_DIR/run.sh" "$@"
+        ;;
+    help|--help|-h|"")
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+esac

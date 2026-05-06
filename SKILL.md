@@ -1,6 +1,7 @@
-# Papyrus — Academic Paper Deep-Read Skill v0.1.1
+# Papyrus — Academic Paper Deep-Read Skill v0.2.0
 
 > Turn arXiv papers into bilingual, beautifully formatted, annotation-rich PDFs.
+> Now with support for Claude Code, Codex, Hermes, and Open Code.
 
 ## Identity
 
@@ -20,16 +21,17 @@
 ## Quick Start
 
 ```bash
-# Minimal invocation
-./SCRIPTS/run.sh --paper https://arxiv.org/abs/1706.03762
+# Unified CLI (works from any agent platform)
+papyrus fetch https://arxiv.org/abs/1706.03762 /tmp/papyrus_work
+papyrus figures /tmp/papyrus_work/figures /tmp/papyrus_work/figures_png
+papyrus formulas /tmp/papyrus_work/formulas.txt /tmp/papyrus_work/formulas
+papyrus pdf /tmp/papyrus_work/annotated.html output.pdf
 
-# Full options
-./SCRIPTS/run.sh \
-  --paper https://arxiv.org/abs/1706.03762 \
-  --language zh-CN \
-  --output ~/Desktop/annotated-paper.pdf \
-  --title "Attention Is All You Need — 逐段精读"
-```
+# Agent platform integration: copy the appropriate config
+cp platforms/claude-code/papyrus-skill.md .claude/skills/
+cp platforms/codex/papyrus-tool.yaml .codex/tools/
+cp platforms/hermes/papyrus-tool.py hermes/tools/
+cp platforms/open-code/papyrus-config.yaml .open-code/
 
 ## Output
 
@@ -66,6 +68,11 @@ papyrus/
 │   └── build_pdf.sh   ← HTML → WeasyPrint PDF
 ├── TEMPLATES/
 │   └── paper.html     ← Base HTML template (Kami design system)
+└── platforms/          ← Agent platform adapter configs
+    ├── claude-code/    ← Claude Code skill definition
+    ├── codex/          ← OpenAI Codex YAML tool definition
+    ├── hermes/         ← Hermes Python tool module
+    └── open-code/      ← Google Open Code YAML config
 └── PROMPTS/
     └── qc_checklist.md ← Three-round quality control checklist
 ```
