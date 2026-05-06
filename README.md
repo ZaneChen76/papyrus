@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-green)](https://python.org)
-[![Version](https://img.shields.io/badge/version-v0.1.0-lightgrey)](https://github.com/ZaneChen76/papyrus/releases)
+[![Version](https://img.shields.io/badge/version-v0.1.1-lightgrey)](https://github.com/ZaneChen76/papyrus/releases)
 
 Papyrus (莎草纸) transforms academic papers into deep-read study documents. Given a paper URL, it produces a single PDF containing the original English text, paragraph-by-paragraph Chinese translation, expert commentary, all figures and formulas — typeset with professional Kami-inspired design.
 

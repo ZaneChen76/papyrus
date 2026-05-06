@@ -1,4 +1,4 @@
-# Papyrus — Academic Paper Deep-Read Skill v0.1.0
+# Papyrus — Academic Paper Deep-Read Skill v0.1.1
 
 > Turn arXiv papers into bilingual, beautifully formatted, annotation-rich PDFs.
 
